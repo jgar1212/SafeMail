@@ -1,0 +1,53 @@
+h1 {
+	padding-bottom: 3em;
+	text-align:center;
+}
+p {
+	text-align: center;
+	font-size: 20px;
+	padding: 2em;
+}
+nav {
+	text-align: center;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+a {
+	color: black;
+	text-decoration:none;
+	padding: 1em 4em 1em 4em;
+	font-size: 30px;
+	background-color: #C5C6C7;
+}
+.header 
+{
+	color: black;
+	text-decoration:none;
+	padding: 2em;
+	font-size: 50px;
+	background:none;
+}
+#wrapper 
+{
+	padding: 5em;
+	background-color: #C5C6C7;
+	
+}
+div {
+	padding: 5em;
+	background-color:white;
+}
+.button {
+	align: center;
+	text-align: center;
+	font-size: 30px;
+	text-decoration: none;
+	background-color: green;
+	color: black;
+}
+.alignment {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+}
