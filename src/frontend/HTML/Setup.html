@@ -15,7 +15,6 @@
 <script>
 const savedText = localStorage.getItem("buttonText");
 const setupButton = document.getElementById("button");
-let color ="";
 if (savedText) {
 		setupButton.innerHTML = savedText;
 	}
@@ -23,23 +22,21 @@ else {
 	setupButton.innerHTML = "Off";
 	}
 if (savedText==="Off") {
-	color = "red";
+	setupButton.style.backgroundColor = "red";
 }
 else {
-	color = "green";
+	setupButton.style.backgroundColor = "green";
 }
 function buttonClick() {
 	if (setupButton.innerHTML === "Off") {
 		setupButton.innerHTML = "On";
-		color = "green";
-		setupButton.style.backgroundColor = color;
+		setupButton.style.backgroundColor = "green";
 		alert("SafeMail is enabled");
 		localStorage.setItem("buttonText", "On");
 	}
 	else {
 		setupButton.innerHTML = "Off";
-		color = "red";
-		setupButton.style.backgroundColor = color;
+		setupButton.style.backgroundColor = "red";
 		alert("SafeMail is disabled");
 		localStorage.setItem("buttonText", "Off");
 	}
