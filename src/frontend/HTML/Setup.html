@@ -3,6 +3,7 @@
 <head>
 <title>SafeMail:Setup</title>
 <meta charset="utf-8">
+<link rel ="icon" type = "image/x-icon" href = "../../../img/SafeMail_logo.png">
 </head>
 <div id="wrapper">
 <body>
@@ -10,9 +11,37 @@
 <link rel="stylesheet" href="../CSS/SafeMail.css">
 <header><h1><a href="Home.html" class = "header">SafeMail</a></h1></header> 
 <div class="alignment">
-<div class = "alignment2">
-<button class = "button" onclick="alert('Button Clicked')">Off/On</button>
-</div>
+<button id = "button" onclick="buttonClick()"></button>
+<script>
+const savedText = localStorage.getItem("buttonText");
+const setupButton = document.getElementById("button");
+if (savedText) {
+		setupButton.innerHTML = savedText;
+	}
+else {
+	setupButton.innerHTML = "Off";
+	}
+if (savedText==="Off") {
+	setupButton.style.backgroundColor = "red";
+}
+else {
+	setupButton.style.backgroundColor = "green";
+}
+function buttonClick() {
+	if (setupButton.innerHTML === "Off") {
+		setupButton.innerHTML = "On";
+		setupButton.style.backgroundColor = "green";
+		alert("SafeMail is enabled");
+		localStorage.setItem("buttonText", "On");
+	}
+	else {
+		setupButton.innerHTML = "Off";
+		setupButton.style.backgroundColor = "red";
+		alert("SafeMail is disabled");
+		localStorage.setItem("buttonText", "Off");
+	}
+}
+</script>
 </div>
 </div>
 </body>
