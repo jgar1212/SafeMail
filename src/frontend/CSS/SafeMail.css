@@ -72,9 +72,10 @@ div {
 	height: 200px;
 }
 img {
+	margin: auto;
+	display: block;
 	max-width:50%;
 	height:auto;
-	text-align: center;
 }
 @media (min-width: 1025px) {
 	a {
