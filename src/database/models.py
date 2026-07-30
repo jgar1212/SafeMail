@@ -6,6 +6,7 @@ from sqlalchemy import (
     DateTime,
     ForeignKey,
     Text
+    Boolean
 )
 from sqlalchemy.orm import declarative_base, relationship
 from datetime import datetime
@@ -18,7 +19,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(100), nullable=False)
-    email = Column(String(255), unique=True, nullable=False)
+    email = Column(String(255), unique=True, nullable=False, index=True)
     password_hash = Column(String(255), nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
@@ -40,6 +41,9 @@ class EmailScan(Base):
 
     processing_time_ms = Column(Float)
 
+    # Records whether an automated warning email was sent
+    alert_sent = Column(Boolean, default=False)
+    
     created_at = Column(DateTime, default=datetime.utcnow)
 
     user = relationship("User", back_populates="scans")
@@ -55,7 +59,8 @@ class ScanReason(Base):
 
     id = Column(Integer, primary_key=True, index=True)
 
-    scan_id = Column(Integer, ForeignKey("email_scans.id"))
+    scan_id = Column(Integer, ForeignKey("email_scans.id"), nullable=False,
+    index=True)
 
     reason = Column(String(255), nullable=False)
 
@@ -71,7 +76,7 @@ class SuspiciousURL(Base):
 
     url = Column(Text, nullable=False)
 
-    domain = Column(String(255))
+    domain = Column(String(255), index=True)
 
     risk_level = Column(String(50))
 
