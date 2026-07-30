@@ -1,0 +1,5 @@
+https://github.com/AkshaanAngral/Spam_Mail_Prediction/tree/main
+https://archive.ics.uci.edu/dataset/94/spambase
+https://huggingface.co/datasets/UniqueData/email-spam-classification
+https://www.kaggle.com/datasets/venky73/spam-mails-dataset/data
+https://ieee-dataport.org/documents/emails-spam
