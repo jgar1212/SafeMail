@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SafeMail - Login</title>
+<meta charset="utf-8">
+<meta name="viewport" content ="width=divice-width, initital-scale=1.0">
+<link rel ="icon" type = "image/x-icon" href = "../static/img/SafeMail_logo.png">
+</head>
+<div id="wrapper">
+<body>
+<div>
+<link rel="stylesheet" href="../static/css/SafeMail.css">
+<header><h1><a href="/" class = "header">SafeMail</a></h1></header> 
+<form class="login-form" id="loginForm">
+  <div class="login-container">
+	<label for="email_addr"><b>Email</b></label>
+	<input type="text" id="email_addr" placeholder="Enter Email" name="email_addr" required>
+
+	<label for="psw"><b>Password</b></label>
+	<input type="password" id="password" placeholder="Enter Password" name="psw" required>
+
+	<button type="submit">Log in</button>
+	<label>
+	  <input type="checkbox" checked="checked" name="remember"> Remember me
+	</label>
+  </div>
+</form>
+<p id="status"></p>
+<div class="alignment">
+<script>
+const form = document.getElementById("loginForm");
+	
+form.addEventListener("submit", async function (event) {
+	event.preventDefault();
+	const email = document.getElementById("email_addr").value;
+	const password = document.getElementById("password").value;
+	const response = await fetch("/api/login", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			email,
+			password
+		})
+	});
+	if (response.ok) {
+		window.location = "/protected-login";
+	} else {
+		document.getElementById("status").textContent="Invalid email or password.";
+	}
+});
+</script>
+</div>
+</div>
+</body>
+</div>
